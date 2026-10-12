@@ -1,0 +1,84 @@
+table gold_dashboard_producao
+	lineageTag: 8fe2a762-ec59-4b16-a18c-ee599aafd0b5
+	sourceLineageTag: [dbo].[gold_dashboard_producao]
+
+	column production_year
+		dataType: int64
+		formatString: 0
+		lineageTag: a80d107d-d35e-4aa1-b6ff-5b20e4ce35d1
+		sourceLineageTag: production_year
+		summarizeBy: sum
+		sourceColumn: production_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column number_of_months
+		dataType: int64
+		formatString: 0
+		lineageTag: 363a9543-51a3-4751-a330-22407acf6875
+		sourceLineageTag: number_of_months
+		summarizeBy: sum
+		sourceColumn: number_of_months
+
+		annotation SummarizationSetBy = Automatic
+
+	column average_monthly_oil_million_barrels
+		dataType: double
+		lineageTag: 2b2eef42-c35b-4abe-ba7b-74f29df0b903
+		sourceLineageTag: average_monthly_oil_million_barrels
+		summarizeBy: sum
+		sourceColumn: average_monthly_oil_million_barrels
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column oil_production_average_monthly_yoy_pct
+		dataType: double
+		lineageTag: e4ba640b-6817-4142-ad4a-0b8ca10b3359
+		sourceLineageTag: oil_production_average_monthly_yoy_pct
+		summarizeBy: sum
+		sourceColumn: oil_production_average_monthly_yoy_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column average_monthly_gas_production_million_m3
+		dataType: double
+		lineageTag: cea8de9d-e6a6-4cf1-a6ae-1a3554e2b948
+		sourceLineageTag: average_monthly_gas_production_million_m3
+		summarizeBy: sum
+		sourceColumn: average_monthly_gas_production_million_m3
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gas_production_average_monthly_yoy_pct
+		dataType: double
+		lineageTag: 512ff6f0-384e-491c-8382-e96123e15189
+		sourceLineageTag: gas_production_average_monthly_yoy_pct
+		summarizeBy: sum
+		sourceColumn: gas_production_average_monthly_yoy_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column coverage_status
+		dataType: string
+		lineageTag: 29e84913-cc4e-4159-b73a-8edb8a09cf99
+		sourceLineageTag: coverage_status
+		summarizeBy: none
+		sourceColumn: coverage_status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dashboard_producao = entity
+		mode: directLake
+		source
+			entityName: gold_dashboard_producao
+			schemaName: dbo
+			expressionSource: 'DirectLake - ANPG_Lakehouse'
+

@@ -1,0 +1,11 @@
+expression 'DirectLake - ANPG_Lakehouse' =
+		let
+		    Origem = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/90232ec7-0911-4cb9-afcd-382313baee03/dabcd172-cf66-4e5d-a7ea-7f8480f8975e", [HierarchicalNavigation=true])
+		in
+		    Origem
+	lineageTag: bb42ef9e-9baf-41f9-866f-3b19fe262ed6
+
+	annotation PBI_IncludeFutureArtifacts = False
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[silver_reports]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[gold_production]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[silver_production]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[testefabric]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[silver_reports_metrics]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[bronze_reports]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[df_gold_final]"}},"objectType":"Table"}]
+
